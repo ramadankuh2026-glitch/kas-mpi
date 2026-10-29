@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaturan – KAS MPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-icon">KM</div>
+          <div class="brand-text"><h2>KAS MPI</h2><span>Keuangan Kelas</span></div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-page="dashboard"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg> Dashboard</a>
+        <a href="himpi.html" class="nav-item" data-page="himpi"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg> Kas HIMPI</a>
+        <a href="usaha.html" class="nav-item" data-page="usaha"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg> Kas Usaha Kelas</a>
+        <a href="transactions.html" class="nav-item" data-page="transactions"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> Riwayat Transaksi</a>
+        <a href="reports.html" class="nav-item" data-page="reports"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Laporan</a>
+        <a href="settings.html" class="nav-item active" data-page="settings"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pengaturan</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar" id="userAvatar">A</div>
+          <div class="user-meta"><div class="name" id="userName">–</div><div class="role" id="userRole">–</div></div>
+        </div>
+        <button class="btn btn-sm btn-secondary w-full" style="margin-top:0.75rem" onclick="Auth.logout()">Keluar</button>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <h1 class="page-title">Pengaturan</h1>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div id="demoBanner" class="alert alert-warning hidden"></div>
+
+        <div class="card">
+          <div class="card-header"><h3>Informasi Aplikasi</h3></div>
+          <div class="card-body">
+            <p><strong>Nama:</strong> KAS MPI</p>
+            <p><strong>Subjudul:</strong> Sistem Keuangan Kelas Manajemen Pemasaran Internasional</p>
+            <p><strong>Versi:</strong> 1.0.0-demo</p>
+            <p><strong>Zona waktu:</strong> Asia/Makassar (WITA)</p>
+            <p><strong>Mata uang:</strong> Rupiah (IDR)</p>
+            <p id="backendStatus" class="mt-2"><strong>Status Backend:</strong> Memeriksa...</p>
+          </div>
+        </div>
+
+        <div class="card" id="openingBalanceCard">
+          <div class="card-header"><h3>Saldo Awal</h3></div>
+          <div class="card-body">
+            <div class="alert alert-info">Hanya Admin yang dapat mengubah saldo awal. Perubahan akan dicatat di audit log.</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Saldo Awal Kas HIMPI (Rp)</label>
+                <input type="number" id="saldoHimpi" class="form-control" min="0" step="1" />
+              </div>
+              <div class="form-group">
+                <label>Saldo Awal Kas Usaha (Rp)</label>
+                <input type="number" id="saldoUsaha" class="form-control" min="0" step="1" />
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btnSaveSaldo">Simpan Saldo Awal</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Pengguna (Demo)</h3></div>
+          <div class="card-body" style="padding:0">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Nama</th>
+                    <th>Role</th>
+                    <th>Kas Diizinkan</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTable">
+                  <tr><td colspan="4" class="text-muted">Memuat...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Koneksi Google Sheets</h3></div>
+          <div class="card-body">
+            <p id="apiUrlInfo">URL Backend: <code id="apiUrlDisplay">–</code></p>
+            <p class="text-muted mt-1" style="font-size:0.875rem">
+              Untuk menghubungkan ke Google Sheets, edit file <code>js/api.js</code> dan isi <code>API_CONFIG.BASE_URL</code>
+              dengan URL Web App Google Apps Script Anda. Lihat <code>backend/README.md</code> untuk panduan lengkap.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (!Auth.requireAuth()) return;
+      App.setActiveNav('settings');
+      App.checkBackendStatus();
+
+      // Backend status
+      const statusEl = document.getElementById('backendStatus');
+      const urlDisplay = document.getElementById('apiUrlDisplay');
+      if (isBackendConfigured()) {
+        urlDisplay.textContent = API_CONFIG.BASE_URL;
+        const ping = await API.ping();
+        statusEl.innerHTML = ping.success
+          ? `<strong>Status Backend:</strong> <span class="text-green">Terhubung</span> (${ping.data?.mode || 'OK'})`
+          : `<strong>Status Backend:</strong> <span class="text-red">Gagal</span> – ${App.escapeHtml(ping.message)}`;
+      } else {
+        urlDisplay.textContent = '(kosong – mode demo lokal)';
+        statusEl.innerHTML = '<strong>Status Backend:</strong> <span class="text-muted">Mode Demo Lokal (localStorage)</span>';
+      }
+
+      // Load settings
+      const settingsRes = await API.getSettings();
+      if (settingsRes.success) {
+        document.getElementById('saldoHimpi').value = settingsRes.data.saldo_awal_himpi || 0;
+        document.getElementById('saldoUsaha').value = settingsRes.data.saldo_awal_usaha || 0;
+      }
+
+      // Users
+      const usersRes = await API.getUsers();
+      const tbody = document.getElementById('usersTable');
+      if (usersRes.success && usersRes.data) {
+        tbody.innerHTML = usersRes.data.map(u => `
+          <tr>
+            <td class="font-mono">${App.escapeHtml(u.user_id)}</td>
+            <td>${App.escapeHtml(u.display_name)}</td>
+            <td>${App.escapeHtml(Auth.roleLabel(u.role))}</td>
+            <td>${App.escapeHtml(u.allowed_cash)}</td>
+          </tr>
+        `).join('');
+      } else {
+        tbody.innerHTML = '<tr><td colspan="4">Tidak dapat memuat data pengguna.</td></tr>';
+      }
+
+      // Restrict saldo edit
+      if (!Auth.isAdmin()) {
+        document.getElementById('openingBalanceCard').querySelector('.card-body').innerHTML =
+          '<div class="alert alert-warning">Hanya Admin yang dapat mengubah saldo awal.</div>';
+      } else {
+        document.getElementById('btnSaveSaldo').addEventListener('click', async () => {
+          const himpi = parseFloat(document.getElementById('saldoHimpi').value);
+          const usaha = parseFloat(document.getElementById('saldoUsaha').value);
+          if (isNaN(himpi) || himpi < 0 || isNaN(usaha) || usaha < 0) {
+            App.toast('Nominal tidak valid.', 'error');
+            return;
+          }
+          if (!App.confirm('Yakin mengubah saldo awal? Perubahan akan dicatat di audit log.')) return;
+
+          const r1 = await API.setOpeningBalance('HIMPI', himpi, 'Update dari pengaturan');
+          const r2 = await API.setOpeningBalance('USAHA_KELAS', usaha, 'Update dari pengaturan');
+          if (r1.success && r2.success) {
+            App.toast('Saldo awal berhasil disimpan.', 'success');
+          } else {
+            App.toast((r1.message || r2.message) || 'Gagal menyimpan.', 'error');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

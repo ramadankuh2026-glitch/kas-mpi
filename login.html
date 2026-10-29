@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – KAS MPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="icon">KM</div>
+        <h1>KAS MPI</h1>
+        <p>Sistem Keuangan Kelas<br>Manajemen Pemasaran Internasional</p>
+        <span class="demo-badge">MODE DEMO</span>
+      </div>
+
+      <div id="loginError" class="alert alert-error hidden"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="userSelect">Pilih Pengguna (Demo)</label>
+          <select id="userSelect" class="form-control" required>
+            <option value="">— Pilih peran —</option>
+            <option value="USR-ADMIN">Admin Utama</option>
+            <option value="USR-BH">Bendahara HIMPI</option>
+            <option value="USR-BU">Bendahara Usaha Kelas</option>
+            <option value="USR-ANG">Anggota (hanya lihat)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnLogin">
+          Masuk
+        </button>
+      </form>
+
+      <div class="alert alert-warning mt-2" style="margin-top:1.5rem;font-size:0.8125rem">
+        <strong>Perhatian:</strong> Ini adalah autentikasi demo. Tidak ada password.
+        Jangan gunakan untuk transaksi uang nyata sampai autentikasi aman dikonfigurasi.
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Redirect if already logged in
+    if (Auth.isLoggedIn()) {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const userId = document.getElementById('userSelect').value;
+      const errEl = document.getElementById('loginError');
+      errEl.classList.add('hidden');
+
+      if (!userId) {
+        errEl.textContent = 'Silakan pilih pengguna.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      const result = Auth.login(userId);
+      if (result.success) {
+        window.location.href = 'index.html';
+      } else {
+        errEl.textContent = result.message || 'Login gagal.';
+        errEl.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

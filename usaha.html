@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kas Usaha Kelas – KAS MPI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-icon">KM</div>
+          <div class="brand-text"><h2>KAS MPI</h2><span>Keuangan Kelas</span></div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-page="dashboard"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg> Dashboard</a>
+        <a href="himpi.html" class="nav-item" data-page="himpi"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg> Kas HIMPI</a>
+        <a href="usaha.html" class="nav-item active" data-page="usaha"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg> Kas Usaha Kelas</a>
+        <a href="transactions.html" class="nav-item" data-page="transactions"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> Riwayat Transaksi</a>
+        <a href="reports.html" class="nav-item" data-page="reports"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Laporan</a>
+        <a href="settings.html" class="nav-item" data-page="settings"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Pengaturan</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar" id="userAvatar">A</div>
+          <div class="user-meta"><div class="name" id="userName">–</div><div class="role" id="userRole">–</div></div>
+        </div>
+        <button class="btn btn-sm btn-secondary w-full" style="margin-top:0.75rem" onclick="Auth.logout()">Keluar</button>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <h1 class="page-title">Kas Usaha Kelas</h1>
+        </div>
+        <div class="topbar-right">
+          <button class="btn btn-sm btn-primary" id="btnAddTransaction">+ Tambah Transaksi</button>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div id="demoBanner" class="alert alert-warning hidden"></div>
+        <div id="cashSummary"></div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Riwayat Transaksi Usaha</h3>
+          </div>
+          <div class="card-body">
+            <div class="filter-bar">
+              <div class="form-group">
+                <label>Jenis</label>
+                <select id="filterType" class="form-control">
+                  <option value="">Semua</option>
+                  <option value="INCOME">Pemasukan</option>
+                  <option value="EXPENSE">Pengeluaran</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Dari</label>
+                <input type="date" id="filterDateFrom" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label>Sampai</label>
+                <input type="date" id="filterDateTo" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label>Cari</label>
+                <input type="text" id="filterSearch" class="form-control" placeholder="ID / keterangan..." />
+              </div>
+              <button class="btn btn-secondary" id="btnFilter">Filter</button>
+            </div>
+            <div id="transactionList"><div class="loading"><div class="spinner"></div> Memuat...</div></div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalTransaction">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Tambah Transaksi Usaha</h3>
+        <button class="modal-close" data-close-modal="modalTransaction">&times;</button>
+      </div>
+      <form id="formTransaction">
+        <div class="modal-body">
+          <input type="hidden" id="txIdempotency" />
+          <div class="form-group">
+            <label>Jenis Kas</label>
+            <select id="txCashType" class="form-control" required>
+              <option value="USAHA_KELAS">Kas Usaha Kelas</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Jenis Transaksi *</label>
+              <select id="txType" class="form-control" required>
+                <option value="INCOME">Pemasukan</option>
+                <option value="EXPENSE">Pengeluaran</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tanggal *</label>
+              <input type="date" id="txDate" class="form-control" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Kategori *</label>
+            <select id="txCategory" class="form-control" required></select>
+          </div>
+          <div class="form-group">
+            <label>Nominal (Rp) *</label>
+            <input type="number" id="txAmount" class="form-control" min="1" step="1" required placeholder="100000" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama / Pihak terkait</label>
+              <input type="text" id="txPerson" class="form-control" placeholder="Opsional" />
+            </div>
+            <div class="form-group">
+              <label>Metode Pembayaran *</label>
+              <select id="txMethod" class="form-control" required>
+                <option value="Tunai">Tunai</option>
+                <option value="Transfer Bank">Transfer Bank</option>
+                <option value="E-Wallet">E-Wallet</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Keterangan</label>
+            <textarea id="txDesc" class="form-control" rows="2" placeholder="Catatan tambahan..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close-modal="modalTransaction">Batal</button>
+          <button type="submit" class="btn btn-primary" id="btnSubmitTx">Simpan Transaksi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/transactions.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Transactions.init({ cashType: 'USAHA_KELAS', pageName: 'usaha' });
+    });
+  </script>
+</body>
+</html>
